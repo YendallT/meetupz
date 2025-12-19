@@ -8,22 +8,22 @@ interface PlaceRowProps {
   type: string
   area: string
   onSelect: () => void
+  selected?: boolean
 }
 
-export function PlaceRow({ name, type, area, onSelect }: PlaceRowProps) {
+export function PlaceRow({ name, type, area, onSelect, selected }: PlaceRowProps) {
   return (
-    <Button
-      variant="ghost"
-      className="w-full justify-between h-auto py-4 px-4 text-left hover:bg-accent"
+    <button
       onClick={onSelect}
+      className={`w-full text-left px-4 py-3 flex items-center justify-between ${
+        selected ? "bg-accent" : ""
+      }`}
     >
-      <div className="flex-1">
-        <p className="text-base font-semibold text-foreground mb-0.5">{name}</p>
-        <p className="text-sm text-muted-foreground">
-          {type} · {area}
-        </p>
+      <div>
+        <div className="font-medium">{name}</div>
+        <div className="text-sm text-muted-foreground">{type} · {area}</div>
       </div>
-      <ChevronRight className="h-5 w-5 text-muted-foreground flex-shrink-0" />
-    </Button>
+      <div className="text-muted-foreground">{">"}</div>
+    </button>
   )
 }

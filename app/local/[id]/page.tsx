@@ -89,7 +89,7 @@ export default function LocalProfilePage() {
         </Button>
       </div>
 
-      <BottomNav />
-    </div>
+    <BottomNav />
+  </div>
   )
 }
